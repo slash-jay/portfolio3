@@ -8,6 +8,7 @@ import { Projects } from "./components/Projects";
 
 import { Footer } from "./components/Footer";
 
+
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,6 @@ function App() {
       <Skills />
       <Projects />
       
-      {/*   <div style={{ marginTop: '70px' }}></div> */}
       <Footer />
     </div>
   );
