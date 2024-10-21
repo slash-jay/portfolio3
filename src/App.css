@@ -232,88 +232,113 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Banner Css ************/
 .banner {
+  position: relative; /* Make the banner position relative */
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/login.mp4');
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url('./assets/login.mp4'); /* Note: Background images cannot be videos. Consider a video container instead. */
+  background-position: center center; /* Center the video */
+  background-size: cover; /* Cover the entire area */
+  background-repeat: no-repeat; /* Prevent repetition */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+.banner::before {
+  content: ""; /* Create a pseudo-element for overlay */
+  position: absolute; /* Position it absolutely */
+  top: 0; /* Start from the top */
+  left: 0; /* Start from the left */
+  right: 0; /* End at the right */
+  bottom: 0; /* End at the bottom */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better text visibility */
+  z-index: 1; /* Place it above the video */
+}
+
+.banner-content {
+  position: relative; /* Keep this content above the overlay */
+  z-index: 2; /* Place it above the overlay */
+  text-align: center; /* Center the text */
+  color: #fff; /* Text color */
 }
 
 @media (max-width: 768px) {
   .banner {
-    padding: 160px 0 80px 0;
+      padding: 160px 0 80px 0; /* Adjust padding for mobile */
   }
   
   .banner h1 {
-    font-size: 45px;
+      font-size: 45px; /* Font size for mobile */
   }
   
   .banner p {
-    font-size: 16px;
-    width: 90%;
+      font-size: 16px; /* Font size for mobile */
+      width: 90%; /* Width for mobile */
+      margin: 0 auto; /* Center the paragraph */
   }
   
   .banner button {
-    font-size: 18px;
-    margin-top: 40px;
+      font-size: 18px; /* Button font size for mobile */
+      margin-top: 40px; /* Margin for button */
   }
   
   .banner button svg {
-    font-size: 20px;
+      font-size: 20px; /* SVG font size for mobile */
   }
 }
 
 .banner h1 {
-  font-size: 65px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1;
-  margin-bottom: 20px;
-  display: block;
+  font-size: 65px; /* Default font size */
+  font-weight: 700; /* Font weight */
+  letter-spacing: 0.8px; /* Letter spacing */
+  line-height: 1; /* Line height */
+  margin-bottom: 20px; /* Margin below heading */
+  display: block; /* Block display */
 }
+
 .banner p {
-  color: #B8B8B8;
-  font-size: 18px;
-  letter-spacing: 0.8px;
-  line-height: 1.5em;
-  width: 96%;
+  color: #B8B8B8; /* Text color */
+  font-size: 18px; /* Font size */
+  letter-spacing: 0.8px; /* Letter spacing */
+  line-height: 1.5em; /* Line height */
+  width: 96%; /* Width */
 }
+
 .banner button {
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
-  margin-top: 60px;
-  letter-spacing: 0.8px;
-  display: flex;
-  align-items: center;
+  color: #fff; /* Button text color */
+  font-weight: 700; /* Button font weight */
+  font-size: 20px; /* Button font size */
+  margin-top: 60px; /* Margin above button */
+  letter-spacing: 0.8px; /* Letter spacing */
+  display: flex; /* Flexbox for button */
+  align-items: center; /* Center button items */
 }
+
 .banner button svg {
-  font-size: 25px;
-  margin-left: 10px;
-  transition: 0.3s ease-in-out;
-  line-height: 1;
+  font-size: 25px; /* SVG size */
+  margin-left: 10px; /* Margin to the left of SVG */
+  transition: 0.3s ease-in-out; /* Transition */
+  line-height: 1; /* Line height */
 }
+
 .banner button:hover svg {
-  margin-left: 25px;
+  margin-left: 25px; /* Margin on hover */
 }
-/* .banner img {
-  animation: updown 3s linear infinite;
-} */
+
 @keyframes updown {
-    0% {
-        transform: translateY(-20px);
-    }
-    50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
+  0% {
+      transform: translateY(-20px); /* Move up */
+  }
+  50% {
+      transform: translateY(20px); /* Move down */
+  }
+  100% {
+      transform: translateY(-20px); /* Move up */
+  }
 }
+
 .txt-rotate > .wrap {
-  border-right: 0.08em solid #666;
+  border-right: 0.08em solid #666; /* Cursor-like effect */
 }
+
 
 /************ Skills Css ************/
 .skill {
